@@ -1,27 +1,21 @@
-// 1 варіант
-// function filterArray(numbers, value) {
-//   const totalArray1 = [];
-//   for (element of numbers) {
-//     if (element > value) {
-//       totalArray1.push(element);
-//     }
-//   }
-//   return totalArray1;
-// }
+const profile = {
+  username: 'Jacob',
+  playTime: 300,
+  getInfo() {
+    return `${profile.username} has ${profile.playTime} active Hours!`;
+  },
+  changeUsername(newName) {
+    this.username = newName;
+  },
+  updatePlayTime(newTime) {
+    this.playTime += newTime;
+  },
+};
 
-// 2 варіант
-function filterArray(numbers, value) {
-  const totalArray1 = [];
-  for (let i = 0; i <= numbers.length; i++) {
-    if (numbers[i] > value) {
-      totalArray1.push(numbers[i]);
-    }
-  }
-  return totalArray1;
-}
+console.log(profile.getInfo()); // "Jacob has 300 active hours!"
 
-console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
-console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
-console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
-console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
-console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+profile.changeUsername('Marco');
+console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+profile.updatePlayTime(20);
+console.log(profile.getInfo()); // "Marco has 320 active hours!"
